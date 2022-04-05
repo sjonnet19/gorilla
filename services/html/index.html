@@ -1,0 +1,60 @@
+<html>
+<head></head>
+<body>
+    <h1>Read:</h1>
+    <div>
+        <h2>Get all students</h2>
+        <p>Endpoint: GET /api/students</p>
+        <p>On success: 200 response of an array containing all students.</p>
+        <p>On error: 500 response with a string error message.</p>
+    </div>
+    <div>
+        <h2>Get a student</h2>
+        <p>Endpoint: GET /api/students/[studentId: number]</p>
+        <p>On success: 200 response with the student.</p>
+        <p>On not found: 404</p>
+        <p>On error: 500 response with a string error message.</p>
+    </div>
+    <div>
+        <h2>Get all students in a classroom</h2>
+        <p>Endpoint: GET /api/classrooms/[classroomId: number]/students</p>
+        <p>On success: 200 response of an array containing all students assigned to the classroom.</p>
+        <p>On classroom not found: 404</p>
+        <p>On error: 500 response with a string error message.</p>
+    </div>
+    <div>
+        <h2>Get all classrooms</h2>
+        <p>Endpoint: GET /api/classrooms</p>
+        <p>On success: 200 response of an array containing all Classrooms.</p>
+        <p>On error: 500 response with a string error message.</p>
+    </div>
+    <div>
+        <h2>Get a classroom</h2>
+        <p>Endpoint: GET /api/classrooms/[classroomId: number]</p>
+        <p>On success: 200 response of the classroom.</p>
+        <p>On error: 500 response with a string error message.</p>
+    </div>
+    <h1>Update:</h1>
+    <div>
+        <h2>Add a student</h2>
+        <p>Endpoint: PUT /api/students</p>
+        <p>Form: { name=[string] }</p>
+        <p>On success: 200 response of the student's id.</p>
+        <p>On error: 500 response with a string error message.</p>
+    </div>
+    <div>
+        <h2>Add a classroom</h2>
+        <p>Endpoint: PUT /api/classrooms</p>
+        <p>Form: { classroomName=[string], instructorName=[string] }</p>
+        <p>On success: 200 response of the classroom's id.</p>
+        <p>On error: 500 response with a string error message.</p>
+    </div>
+    <div>
+        <h2>Add a student to a classroom</h2>
+        <p>Endpoint: PUT /api/students</p>
+        <p>Form: { studentId=[number], classroomId=[string]}</p>
+        <p>On success: 200 response of the mapping's id.</p>
+        <p>On error: 500 response with a string error message.</p>
+    </div>
+</body>
+</html>

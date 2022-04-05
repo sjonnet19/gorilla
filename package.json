@@ -1,0 +1,29 @@
+{
+  "name": "tdx-frontend-interview",
+  "version": "1.0.0",
+  "description": "TobiiDynavox front-end developer interview",
+  "scripts": {
+    "install-react": "concurrently \"npm install --prefix ./services\" \"npm install --prefix ./react-client\"",
+    "install-angular": "concurrently \"npm install --prefix ./services\" \"npm install --prefix ./angular-client\"",
+    "install-ember": "concurrently \"npm install --prefix ./services\" \"npm install --prefix ./ember-client\"",
+    "install-vue": "concurrently \"npm install --prefix ./services\" \"npm install --prefix ./vue-client\"",
+    "start-react": "concurrently \"npm run start --prefix ./services\" \"npm run start --prefix ./react-client\"",
+    "start-angular": "concurrently \"npm run start --prefix ./services\" \"npm run start --prefix ./angular-client\"",
+    "start-ember": "concurrently \"npm run start --prefix ./services\" \"npm run start --prefix ./ember-client\"",
+    "start-vue": "concurrently \"npm run start --prefix ./services\" \"npm run serve --prefix ./vue-client\"",
+    "start-services": "npm run start --prefix ./services"
+  },
+  "author": "TobiiDynavox",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "concurrently": "^7.0.0",
+    "cors": "^2.8.5",
+    "multer": "^1.4.4",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "typescript": "^4.6.2"
+  }
+}
