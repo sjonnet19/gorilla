@@ -14,10 +14,10 @@ API documentation of the back end services can be found at http://localhost:9000
 
 Create a simple UI with the following features:
 1. The ability to create new students
-2. The ability to create new instructors
-3. The ability to drag and drop students to instructors to assign them
+2. The ability to create new classrooms
+3. The ability to drag and drop students to classrooms to assign them (each student can be assigned to more than one classroom)
 
-The above features should persist their data to the SQLite backend using the express calls documented on http://localhost:9000 while the services are running. Don't worry about designing a workflow, all of the above may be accomplished on a single screen for the purposes of this interview. Additionally, don't worry about making this pretty; 
+The above features should persist their data to the SQLite backend using the express calls documented on http://localhost:9000 while the services are running, and are reset on service restart. Don't worry about designing a workflow, all of the above may be accomplished on a single screen for the purposes of this interview. Additionally, don't worry about making this pretty; 
 we know you know your way around CSS and don't expect you to spend more of your time showing it!
 
 ## Bootstrap Quick Start Projects
