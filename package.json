@@ -7,6 +7,7 @@
     "install-angular": "concurrently \"npm install --prefix ./services\" \"npm install --prefix ./angular-client\"",
     "install-ember": "concurrently \"npm install --prefix ./services\" \"npm install --prefix ./ember-client\"",
     "install-vue": "concurrently \"npm install --prefix ./services\" \"npm install --prefix ./vue-client\"",
+    "install-services": "npm install --prefix ./services",
     "start-react": "concurrently \"npm run start --prefix ./services\" \"npm run start --prefix ./react-client\"",
     "start-angular": "concurrently \"npm run start --prefix ./services\" \"npm run start --prefix ./angular-client\"",
     "start-ember": "concurrently \"npm run start --prefix ./services\" \"npm run start --prefix ./ember-client\"",
@@ -19,7 +20,6 @@
     "body-parser": "^1.19.2",
     "concurrently": "^7.0.0",
     "cors": "^2.8.5",
-    "express": "^4.18.1",
     "multer": "^1.4.4",
     "sqlite3": "^5.0.2"
   },
