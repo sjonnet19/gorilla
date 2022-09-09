@@ -20,16 +20,10 @@ Create a simple UI with the following features:
 The above features should persist their data to the SQLite backend using the express calls documented on http://localhost:9000 while the services are running, and are reset on service restart. Don't worry about designing a workflow, all of the above may be accomplished on a single screen for the purposes of this interview. Additionally, don't worry about making this pretty; 
 we know you know your way around CSS and don't expect you to spend more of your time showing it!
 
-## Starting the API Services
+## Starting the API Services (from "services" directory) 
 
 `npm install`
 
-`cd services`
-
-`npm install`
-
-`cd ..`
-
-`npm run start-services`
+`npm run start`
 
 The above commands will boot strap the services back end on port 9000 that is included in the services directory. You will be expected to create a web-app that is self hosted with a development server, and to thoroughly document the startup procedure. You do not need to create a startup script in the root packages.json file, it is a bonus, but for time constraints, simple documentation with your submission is sufficient.
