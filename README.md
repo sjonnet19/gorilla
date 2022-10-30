@@ -1,8 +1,4 @@
-# TobiiDynavox Front End Web Developer Takehome
-
-Thank you for applying to TobiiDynavox for a front-end web developer position!
-
-Your task is to complete a small web-app interfacing with an existing services back end. This service will run in nodejs on your local machine on port **4200**. It will have a basic in memory data set for you to manipulate. We expect you to use modern client-server interaction seen in interactive web applications, as those are the types of applications you will be building at TobiiDynavox!
+our task is to complete a small web-app interfacing with an existing services back end. This service will run in nodejs on your local machine on port **4200**. It will have a basic in memory data set for you to manipulate. We expect you to use modern client-server interaction seen in interactive web applications, as those are the types of applications you will be building at TobiiDynavox!
 
 You may use any framework you like to build your front-end. Feel free to use the basic demo getting started applications you can create with the command line tools of each framework, and modify them in place as needed. You are not tied to one of these frameworks. You can use any additional npm packages you need to complete your task.
 

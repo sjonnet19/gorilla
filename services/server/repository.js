@@ -134,8 +134,8 @@ var Repository = /** @class */ (function () {
                 reject("Database Not Initialized");
                 return;
             }
-            console.log("Inserting Student " + name);
-            _this.db.run("INSERT INTO Students(name) VALUES('" + name + "')", function (err) {
+            console.log("Inserting Student ".concat(name));
+            _this.db.run("INSERT INTO Students(name) VALUES('".concat(name, "')"), function (err) {
                 if (err) {
                     console.log("Error inserting student: " + err.message);
                     reject(err.message);
@@ -155,11 +155,11 @@ var Repository = /** @class */ (function () {
                                 reject("Database Not Initialized");
                                 return;
                             }
-                            console.log("Removing Student " + JSON.stringify(id));
-                            _this.db.run("DELETE FROM Students WHERE id = " + id, function (err) {
+                            console.log("Removing Student ".concat(JSON.stringify(id)));
+                            _this.db.run("DELETE FROM Students WHERE id = ".concat(id), function (err) {
                                 if (err)
                                     reject(err.message);
-                                console.log("Rows Deleted " + this.changes);
+                                console.log("Rows Deleted ".concat(this.changes));
                                 resolve(true);
                             });
                         })];
@@ -197,7 +197,7 @@ var Repository = /** @class */ (function () {
                 reject("Database Not Initialized");
                 return;
             }
-            _this.db.get("SELECT * FROM Students WHERE id = " + studentId, function (err, row) {
+            _this.db.get("SELECT * FROM Students WHERE id = ".concat(studentId), function (err, row) {
                 if (err)
                     reject(err.message);
                 console.log(JSON.stringify(row));
@@ -213,8 +213,8 @@ var Repository = /** @class */ (function () {
                 reject("Database Not Initialized");
                 return;
             }
-            console.log("Inserting Classroom " + JSON.stringify(classroom));
-            _this.db.run("INSERT INTO Classrooms (classroomName, instructorName) VALUES('" + classroom.classroomName + "', '" + classroom.instructorName + "')", function (err) {
+            console.log("Inserting Classroom ".concat(JSON.stringify(classroom)));
+            _this.db.run("INSERT INTO Classrooms (classroomName, instructorName) VALUES('".concat(classroom.classroomName, "', '").concat(classroom.instructorName, "')"), function (err) {
                 if (err)
                     reject(err.message);
                 resolve(this.lastID);
@@ -232,11 +232,11 @@ var Repository = /** @class */ (function () {
                                 reject("Database Not Initialized");
                                 return;
                             }
-                            console.log("Removing Classroom " + JSON.stringify(id));
-                            _this.db.run("DELETE FROM Classrooms WHERE id = " + id, function (err) {
+                            console.log("Removing Classroom ".concat(JSON.stringify(id)));
+                            _this.db.run("DELETE FROM Classrooms WHERE id = ".concat(id), function (err) {
                                 if (err)
                                     reject(err.message);
-                                console.log("Rows Deleted " + this.changes);
+                                console.log("Rows Deleted ".concat(this.changes));
                                 resolve(true);
                             });
                         })];
@@ -275,7 +275,7 @@ var Repository = /** @class */ (function () {
                 reject("Database Not Initialized");
                 return;
             }
-            _this.db.get("SELECT * FROM Classrooms WHERE id = " + classroomId, function (err, row) {
+            _this.db.get("SELECT * FROM Classrooms WHERE id = ".concat(classroomId), function (err, row) {
                 if (err)
                     reject(err.message);
                 console.log(JSON.stringify(row));
@@ -295,21 +295,21 @@ var Repository = /** @class */ (function () {
                                 reject("Database Not Initialized");
                                 return;
                             }
-                            _this.db.all("SELECT * FROM StudentsToClassroom WHERE studentId = " + studentId + " AND classroomId = " + classroomId, function (err, rows) {
+                            _this.db.all("SELECT * FROM StudentsToClassroom WHERE studentId = ".concat(studentId, " AND classroomId = ").concat(classroomId), function (err, rows) {
                                 if (err)
                                     reject(err.message);
                                 if (rows.length === 0) {
                                     resolve(-1);
                                     return;
                                 }
-                                console.log("EXISTS! " + rows[0].id);
+                                console.log("EXISTS! ".concat(rows[0].id));
                                 resolve(rows[0].id);
                             });
                         })];
                     case 1:
                         exists = _a.sent();
                         if (exists >= 0) {
-                            console.log("EXISTS " + exists);
+                            console.log("EXISTS ".concat(exists));
                             return [2 /*return*/, exists];
                         }
                         return [4 /*yield*/, new Promise(function (resolve, reject) {
@@ -317,8 +317,8 @@ var Repository = /** @class */ (function () {
                                     reject("Database Not Initialized");
                                     return;
                                 }
-                                console.log("Inserting Student " + studentId + " into Classroom " + classroomId);
-                                _this.db.run("INSERT INTO StudentsToClassroom (studentId, classroomId) VALUES('" + studentId + "', '" + classroomId + "')", function (err) {
+                                console.log("Inserting Student ".concat(studentId, " into Classroom ").concat(classroomId));
+                                _this.db.run("INSERT INTO StudentsToClassroom (studentId, classroomId) VALUES('".concat(studentId, "', '").concat(classroomId, "')"), function (err) {
                                     if (err)
                                         reject(err.message);
                                     resolve(this.lastID);
@@ -336,7 +336,7 @@ var Repository = /** @class */ (function () {
                 reject("Database Not Initialized");
                 return;
             }
-            _this.db.all("SELECT * FROM Classrooms JOIN StudentsToClassroom ON Classrooms.id = StudentsToClassroom.classroomId WHERE StudentsToClassroom.studentId = " + studentId, function (err, rows) {
+            _this.db.all("SELECT * FROM Classrooms JOIN StudentsToClassroom ON Classrooms.id = StudentsToClassroom.classroomId WHERE StudentsToClassroom.studentId = ".concat(studentId), function (err, rows) {
                 if (err)
                     reject(err.message);
                 console.log(JSON.stringify(rows));
@@ -351,7 +351,7 @@ var Repository = /** @class */ (function () {
                 reject("Database Not Initialized");
                 return;
             }
-            _this.db.all("SELECT * FROM Students JOIN StudentsToClassroom ON Students.id = StudentsToClassroom.studentId WHERE StudentsToClassroom.classroomId = " + classroomId, function (err, rows) {
+            _this.db.all("SELECT * FROM Students JOIN StudentsToClassroom ON Students.id = StudentsToClassroom.studentId WHERE StudentsToClassroom.classroomId = ".concat(classroomId), function (err, rows) {
                 if (err)
                     reject(err.message);
                 console.log(JSON.stringify(rows));
@@ -369,11 +369,11 @@ var Repository = /** @class */ (function () {
                                 reject("Database Not Initialized");
                                 return;
                             }
-                            console.log("Removing StudentToClassroom with StudentID " + JSON.stringify(studentId));
-                            _this.db.run("DELETE FROM StudentsToClassroom WHERE studentId = " + studentId, function (err) {
+                            console.log("Removing StudentToClassroom with StudentID ".concat(JSON.stringify(studentId)));
+                            _this.db.run("DELETE FROM StudentsToClassroom WHERE studentId = ".concat(studentId), function (err) {
                                 if (err)
                                     reject(err.message);
-                                console.log("Rows Deleted " + this.changes);
+                                console.log("Rows Deleted ".concat(this.changes));
                                 resolve(true);
                             });
                         })];
@@ -392,11 +392,11 @@ var Repository = /** @class */ (function () {
                                 reject("Database Not Initialized");
                                 return;
                             }
-                            console.log("Removing StudentToClassroom with classroomID " + JSON.stringify(classroomId));
-                            _this.db.run("DELETE FROM StudentsToClassroom WHERE classroomId = " + classroomId, function (err) {
+                            console.log("Removing StudentToClassroom with classroomID ".concat(JSON.stringify(classroomId)));
+                            _this.db.run("DELETE FROM StudentsToClassroom WHERE classroomId = ".concat(classroomId), function (err) {
                                 if (err)
                                     reject(err.message);
-                                console.log("Rows Deleted " + this.changes);
+                                console.log("Rows Deleted ".concat(this.changes));
                                 resolve(true);
                             });
                         })];

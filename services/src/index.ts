@@ -27,8 +27,11 @@ async function main() {
 
   /* Students */
   app.get("/api/students", async (_, res) => {
+    console.log('students:_', _);
     try {
       var students = await repository.getStudents();
+
+      console.log('students:students', students);
 
       res.status(200);
       res.contentType("json");

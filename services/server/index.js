@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -63,7 +67,9 @@ var body_parser_1 = __importDefault(require("body-parser"));
 var path = __importStar(require("path"));
 var repository_1 = require("./repository");
 var multer = require("multer");
-var app = express_1.default();
+var cors = require("cors");
+var app = (0, express_1.default)();
+app.use(cors());
 function main() {
     return __awaiter(this, void 0, void 0, function () {
         var PORT, repository;
@@ -90,21 +96,25 @@ function main() {
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0:
-                                    _a.trys.push([0, 2, , 3]);
-                                    return [4 /*yield*/, repository.getStudents()];
+                                    console.log('students:_', _);
+                                    _a.label = 1;
                                 case 1:
+                                    _a.trys.push([1, 3, , 4]);
+                                    return [4 /*yield*/, repository.getStudents()];
+                                case 2:
                                     students = _a.sent();
+                                    console.log('students:students', students);
                                     res.status(200);
                                     res.contentType("json");
                                     res.send(JSON.stringify(students));
-                                    return [3 /*break*/, 3];
-                                case 2:
+                                    return [3 /*break*/, 4];
+                                case 3:
                                     ex_1 = _a.sent();
                                     res.status(500);
                                     res.contentType("html");
                                     res.send(JSON.stringify(ex_1));
-                                    return [3 /*break*/, 3];
-                                case 3: return [2 /*return*/];
+                                    return [3 /*break*/, 4];
+                                case 4: return [2 /*return*/];
                             }
                         });
                     }); });
@@ -303,7 +313,7 @@ function main() {
                             }
                         });
                     }); });
-                    console.log("back-end services listening on port 9000 serving API Documentation from " + path.resolve(__dirname, "../html"));
+                    console.log("back-end services listening on port 9000 serving API Documentation from ".concat(path.resolve(__dirname, "../html")));
                     app.listen(PORT, function () { });
                     return [2 /*return*/];
             }
